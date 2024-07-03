@@ -2,10 +2,12 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
+venv/
+.DS_Store
+.idea/
 # C extensions
 *.so
-
+allure-results/
 # Distribution / packaging
 .Python
 build/
