@@ -1,7 +1,9 @@
 import time
+from telnetlib import EC
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
 
 driver=webdriver.Chrome()
 driver.maximize_window()
@@ -20,6 +22,6 @@ else:
     print('Login was not successful')
     assert False
 
-
-
 time.sleep(5)
+# Close the browser
+driver.quit()
