@@ -15,7 +15,7 @@ class ReadConfig():
         username = config.get('Login Details', 'username')
         return username
 
-    def getPassword(self):
+    def getPasswo2rd(self):
         password = config.get('Login Details', 'password')
         return password
 
@@ -23,6 +23,5 @@ class ReadConfig():
         firstname = config.get('Billing Information', 'firstName')
         return firstname
 
-    # ToDo Noma please do the code to read the LastName
     def getZipCode(self):
         return config.get('Billing Informations', 'ZipCode')
