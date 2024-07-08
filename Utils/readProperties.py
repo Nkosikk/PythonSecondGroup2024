@@ -23,8 +23,6 @@ class ReadConfig():
         lastname = config.get('Billing Information', 'lastName')
         return lastname
 
-
-    # ToDo Alvin please do the code to read the FirstName
     def getFirstName(self):
         firstname = config.get('Billing Information', 'firstName')
         return firstname
