@@ -24,4 +24,5 @@ class ReadConfig():
         return firstname
 
     # ToDo Noma please do the code to read the LastName
-    # ToDo Tsego please do the code to read the zipCode
+    def getZipCode(self):
+        return config.get('Billing Informations', 'ZipCode')
