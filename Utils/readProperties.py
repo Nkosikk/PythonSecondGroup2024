@@ -12,9 +12,14 @@ class ReadConfig():
 
         return config.get('URLs', 'sauceDemoURL')
 
+    def getPassword(self):
+        password = config.get('Login Details', 'password')
+        return password
+
     # ToDo Gomo p[lease do the code to read the username
 
     # ToDo Kate please do the code to read the password
+
 
     # ToDo Alvin please do the code to read the FirstName
     # ToDo Noma please do the code to read the LastName
