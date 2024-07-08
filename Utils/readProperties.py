@@ -19,6 +19,12 @@ class ReadConfig():
         password = config.get('Login Details', 'password')
         return password
 
+    def getLastName(self):
+        lastname = config.get('Billing Information', 'lastName')
+        return lastname
+
+
+    # ToDo Alvin please do the code to read the FirstName
     def getFirstName(self):
         firstname = config.get('Billing Information', 'firstName')
         return firstname
