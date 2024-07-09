@@ -21,7 +21,7 @@ if product == 'Products':
 else:
     print('Login was not successful')
     assert False
-driver.find_element(By.XPATH, "//button[@id='add-to-cart-sauce-labs-backpack']").click()
+#driver.find_element(By.XPATH, "//button[@id='add-to-cart-sauce-labs-backpack']").click()
 time.sleep(5)
 # Close the browser
 driver.quit()
