@@ -13,3 +13,11 @@ class LoginPage:
         wait = WebDriverWait(self.driver, 15)
         element = wait.until(EC.element_to_be_clickable((By.ID, self.textbox_username_id)))
         element.send_keys(username)
+
+
+    # ToDo Allettah create the method to enter password
+    # ToDo Zwai create the methood to click login button
+    # ToDo MakMore create the methood to validate that you are in homepage
+
+
+
