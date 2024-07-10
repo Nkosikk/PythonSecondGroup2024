@@ -5,7 +5,7 @@ from selenium import webdriver
 
 
 @pytest.fixture()
-def setup(browser,url):
+def setup(browser):
     if browser.lower() == 'chrome':
         driver = webdriver.Chrome()
 
