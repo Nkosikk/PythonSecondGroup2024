@@ -23,8 +23,7 @@ class ReadConfig():
         return lastname
 
     def getFirstName(self):
-        firstname = config.get('Billing Information', 'firstName')
-        return firstname
+            return config.get("Billing Information", 'firstName')
 
     def getZipCode(self):
-        return config.get('Billing Informations', 'ZipCode')
+        return config.get("Billing Information", 'ZipCode')
