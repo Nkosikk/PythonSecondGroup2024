@@ -1,7 +1,9 @@
 import time
+from telnetlib import EC
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
 
 driver = webdriver.Chrome()
 driver.maximize_window()
@@ -19,7 +21,7 @@ if product == 'Products':
 else:
     print('Login was not successful')
     assert False
-
-
-
+#driver.find_element(By.XPATH, "//button[@id='add-to-cart-sauce-labs-backpack']").click()
 time.sleep(5)
+# Close the browser
+driver.quit()
