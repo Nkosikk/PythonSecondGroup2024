@@ -6,6 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 class LoginPage:
     textbox_username_id = 'user-name'
     textbox_password_id = 'password'
+    button_login_id = 'login-button'
 
     def __init__(self, driver):
         self.driver = driver
@@ -19,6 +20,12 @@ class LoginPage:
         wait = WebDriverWait(self.driver, 15)
         element = wait.until(EC.element_to_be_clickable((By.ID, self.textbox_password_id)))
         element.send_keys(password)
+
+
+    def clickLogin(self):
+        wait = WebDriverWait(self.driver, 15)
+        element = wait.until(EC.element_to_be_clickable((By.ID, self.button_login_id)))
+        element.click()
 
     # ToDo Allettah create the method to enter password
     # ToDo Zwai create the methood to click login button
