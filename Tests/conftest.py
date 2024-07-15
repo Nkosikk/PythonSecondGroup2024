@@ -1,30 +1,30 @@
 import pytest
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.firefox import GeckoDriverManager
+from webdriver_manager.microsoft import EdgeChromiumDriverManager
 
 
 @pytest.fixture()
 def setup(browser):
-    if browser.lower() or browser.upper() == 'chrome':
-        chrome_options = webdriver.ChromeOptions()
-        # chrome_options.add_argument('--headless')  # Run in headless mode
-        driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
-        print("Chrome Browser launched successfully")
-
-    elif browser.lower() or browser.upper() == 'firefox':
-        driver = webdriver.Firefox()
-        print("Firefox Browser launched successfully")
-
+    if browser == 'chrome':
+        driver = webdriver.Chrome(ChromeDriverManager().install())
+    elif browser == 'firefox':
+        driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
     else:
-        driver = webdriver.Edge()
-        print("Edge Browser launched successfully")
+        driver = webdriver.Edge(EdgeChromiumDriverManager().install())
 
     return driver
 
 
 def pytest_addoption(parser):
     parser.addoption("--browser")
+
+
+@pytest.fixture()
+def browser(request):
+    return request.config.getoption("--browser")
+
 
 
 @pytest.fixture()
