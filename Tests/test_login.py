@@ -25,10 +25,10 @@ class Test_001_Login:
         self.lp=LoginPage(self.driver)
         self.lp.enterUsername(self.username)
         self.lp.enterPassword(self.password)
-        allure.attach(self.driver.get_screenshot_as_png(), name="Login page", attachment_type=AttachmentType.PNG)
+        #allure.attach(self.driver.get_screenshot_as_png(), name="Login page", attachment_type=AttachmentType.PNG)
         self.lp.clickLogin()
         self.hp.verifyBurgerMenu()
-        allure.attach(self.driver.get_screenshot_as_png(),name="Home page",attachment_type=AttachmentType.PNG)
+        #allure.attach(self.driver.get_screenshot_as_png(),name="Home page",attachment_type=AttachmentType.PNG)
 
 
         self.driver.quit()
