@@ -1,5 +1,6 @@
 import allure
 import pytest
+from allure_commons.types import AttachmentType
 
 from Pages.loginPage import LoginPage
 from Utils.readProperties import ReadConfig
@@ -22,6 +23,15 @@ class Test_001_Login:
         self.lp.enterUsername(self.username)
         self.lp.enterPassword(self.password)
         self.lp.clickLogin()
+        allure.attach(self.driver.get_screenshot_as_png(),name="home page",attachment_type=AttachmentType.PNG)
+
+
+
+
+
+
+
+
         self.driver.quit()
 
 
