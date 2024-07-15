@@ -1,6 +1,3 @@
-import os
-import time
-
 import pytest
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
@@ -16,10 +13,6 @@ def setup(browser):
         driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
     else:
         driver = webdriver.Edge(EdgeChromiumDriverManager().install())
-
-    downloadFilePath = os.getcwd() + '\\Recon\\'
-    params = {'behavior': 'allow', 'downloadPath': downloadFilePath}
-    driver.execute_cdp_cmd('Page.setDownloadBehavior', params)
 
     return driver
 
