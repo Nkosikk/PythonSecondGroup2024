@@ -25,3 +25,5 @@ else:
 time.sleep(5)
 # Close the browser
 driver.quit()
+
+# pytest -s -v -m"regression" --alluredir="allure-results" --browser chrome
