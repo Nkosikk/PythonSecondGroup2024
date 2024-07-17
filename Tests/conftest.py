@@ -7,10 +7,10 @@ from webdriver_manager.microsoft import EdgeChromiumDriverManager
 
 @pytest.fixture()
 def setup(browser):
-    if browser == 'chrome':
+    if browser.lower() == 'chrome':
         driver = webdriver.Chrome()
-    elif browser == 'firefox':
-        driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
+    elif browser.lower() == 'firefox':
+        driver = webdriver.Firefox()
     else:
         driver = webdriver.Edge(EdgeChromiumDriverManager().install())
 
