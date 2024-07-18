@@ -15,7 +15,7 @@ class ReadConfig():
         username = config.get('Login Details', 'username')
         return username
 
-    def getPasswo2rd(self):
+    def getPassword(self):
         password = config.get('Login Details', 'password')
         return password
 
