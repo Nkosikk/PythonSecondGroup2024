@@ -5,6 +5,7 @@ from selenium.webdriver.common.by import By
 
 from Pages.homePage import HomePage
 from Pages.loginPage import LoginPage
+from Pages.yourCartPage import YourCartPage
 from Utils.readProperties import ReadConfig
 
 
@@ -33,4 +34,13 @@ class Test_001_Login:
         allure.attach(self.driver.get_screenshot_as_png(), name="Home page", attachment_type=AttachmentType.PNG)
         self.hp.verifySelectedBackPack()
         allure.attach(self.driver.get_screenshot_as_png(), name="Home page", attachment_type=AttachmentType.PNG)
+        self.hp.clickShoppingCartContainer()
+        allure.attach(self.driver.get_screenshot_as_png(), name="Home page", attachment_type=AttachmentType.PNG)
+        self.yp = YourCartPage(self.driver)
+        self.yp.verifyYourCart()
+        allure.attach(self.driver.get_screenshot_as_png(), name="Home page", attachment_type=AttachmentType.PNG)
+        self.yp.clickCheckoutButton()
+        allure.attach(self.driver.get_screenshot_as_png(), name="Home page", attachment_type=AttachmentType.PNG)
+
+
         self.driver.quit()

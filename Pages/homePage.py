@@ -7,6 +7,7 @@ class HomePage:
     burgerMenu_id = "react-burger-menu-btn"
     addBackPack_id = "add-to-cart-sauce-labs-backpack"
     selectedBackPack_id = "shopping_cart_container"
+    clickShoppingCartContainer_id = "shopping_cart_container"
 
     def __init__(self, driver):
         self.driver = driver
@@ -23,5 +24,9 @@ class HomePage:
         wait = WebDriverWait(self.driver, 15)
         element = wait.until(EC.element_to_be_clickable((By.ID, self.burgerMenu_id)))
         element.is_displayed()
+    def clickShoppingCartContainer(self):
+        wait = WebDriverWait(self.driver, 15)
+        element = wait.until(EC.element_to_be_clickable((By.ID, self.clickShoppingCartContainer_id)))
+        element.click()
 
 
