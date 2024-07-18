@@ -25,17 +25,12 @@ class Test_001_Login:
         self.lp.enterPassword(self.password)
         allure.attach(self.driver.get_screenshot_as_png(), name="Login page", attachment_type=AttachmentType.PNG)
         self.lp.clickLogin()
-
-
-    #@pytest.mark.regression
-    #@pytest.mark.nkosi
-    #@allure.severity(allure.severity_level.CRITICAL)
-    #def test_verifyHomePageTests(self, setup):
-    #    self.driver = setup
         self.hp = HomePage(self.driver)
         allure.attach(self.driver.get_screenshot_as_png(), name="Home page", attachment_type=AttachmentType.PNG)
         self.hp.verifyBurgerMenu()
         allure.attach(self.driver.get_screenshot_as_png(), name="Home page", attachment_type=AttachmentType.PNG)
-        self.hp.selectBackPack()
+        self.hp.selectAddBackPack()
+        allure.attach(self.driver.get_screenshot_as_png(), name="Home page", attachment_type=AttachmentType.PNG)
+        self.hp.verifySelectedBackPack()
         allure.attach(self.driver.get_screenshot_as_png(), name="Home page", attachment_type=AttachmentType.PNG)
         self.driver.quit()
