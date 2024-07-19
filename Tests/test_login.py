@@ -2,7 +2,9 @@ import allure
 import pytest
 from allure_commons.types import AttachmentType
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
 
+from Pages.checkoutYrInfoPg import CheckoutYrInfoPg
 from Pages.homePage import HomePage
 from Pages.loginPage import LoginPage
 from Pages.yourCartPage import YourCartPage
@@ -41,6 +43,12 @@ class Test_001_Login:
         allure.attach(self.driver.get_screenshot_as_png(), name="Home page", attachment_type=AttachmentType.PNG)
         self.yp.clickCheckoutButton()
         allure.attach(self.driver.get_screenshot_as_png(), name="Home page", attachment_type=AttachmentType.PNG)
-
-
+        self.cyi = CheckoutYrInfoPg(self.driver)
+        self.cyi.verifyCheckoutInfoPg()
+        allure.attach(self.driver.get_screenshot_as_png(), name="Home page", attachment_type=AttachmentType.PNG)
+        self.cyi.enterFirstName(self.firstName)
+        self.cyi.enterLastName(self.lastName)
+        self.cyi.enterZipCode(self.zipCode)
+        allure.attach(self.driver.get_screenshot_as_png(), name="Home page", attachment_type=AttachmentType.PNG)
+        self.cyi.clickContinue()
         self.driver.quit()

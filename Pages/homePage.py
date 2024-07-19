@@ -16,17 +16,18 @@ class HomePage:
         wait = WebDriverWait(self.driver, 15)
         element = wait.until(EC.element_to_be_clickable((By.ID, self.burgerMenu_id)))
         element.is_displayed()
+
     def selectAddBackPack(self):
         wait = WebDriverWait(self.driver, 15)
         element = wait.until(EC.element_to_be_clickable((By.ID, self.addBackPack_id)))
         element.click()
+
     def verifySelectedBackPack(self):
         wait = WebDriverWait(self.driver, 15)
-        element = wait.until(EC.element_to_be_clickable((By.ID, self.burgerMenu_id)))
+        element = wait.until(EC.element_to_be_clickable((By.ID, self.selectedBackPack_id)))
         element.is_displayed()
+
     def clickShoppingCartContainer(self):
         wait = WebDriverWait(self.driver, 15)
         element = wait.until(EC.element_to_be_clickable((By.ID, self.clickShoppingCartContainer_id)))
         element.click()
-
-
