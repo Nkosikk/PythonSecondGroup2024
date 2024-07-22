@@ -15,6 +15,9 @@ class Test_Purchase_Item:
     sauceDemoURL = ReadConfig().getSauceDemoURL()
     username = ReadConfig().getUsername()
     password = ReadConfig().getPassword()
+    firstName = ReadConfig().getFirstName()
+    lastName = ReadConfig().getLastName()
+    zipCode = ReadConfig().getZipCode()
 
     @pytest.mark.regression
     @pytest.mark.nkosi
@@ -29,7 +32,6 @@ class Test_Purchase_Item:
         allure.attach(self.driver.get_screenshot_as_png(), name="Login page", attachment_type=AttachmentType.PNG)
         self.lp.clickLogin()
         self.hp = HomePage(self.driver)
-        allure.attach(self.driver.get_screenshot_as_png(), name="Home page", attachment_type=AttachmentType.PNG)
         self.hp.verifyBurgerMenu()
         allure.attach(self.driver.get_screenshot_as_png(), name="Home page", attachment_type=AttachmentType.PNG)
         self.hp.selectAddBackPack()
@@ -42,13 +44,14 @@ class Test_Purchase_Item:
         self.yp.verifyYourCart()
         allure.attach(self.driver.get_screenshot_as_png(), name="Your Cart page", attachment_type=AttachmentType.PNG)
         self.yp.clickCheckoutButton()
-        allure.attach(self.driver.get_screenshot_as_png(), name="Your Cart page", attachment_type=AttachmentType.PNG)
         self.cyi = CheckoutYrInfoPg(self.driver)
         self.cyi.verifyCheckoutInfoPg()
-        allure.attach(self.driver.get_screenshot_as_png(), name="Checkout Ypur Info page", attachment_type=AttachmentType.PNG)
+        allure.attach(self.driver.get_screenshot_as_png(), name="Checkout Your Info page",
+                      attachment_type=AttachmentType.PNG)
         self.cyi.enterFirstName(self.firstName)
         self.cyi.enterLastName(self.lastName)
         self.cyi.enterZipCode(self.zipCode)
-        allure.attach(self.driver.get_screenshot_as_png(), name="Checkout Ypur Info page", attachment_type=AttachmentType.PNG)
+        allure.attach(self.driver.get_screenshot_as_png(), name="Checkout Your Info page",
+                      attachment_type=AttachmentType.PNG)
         self.cyi.clickContinue()
         self.driver.quit()
