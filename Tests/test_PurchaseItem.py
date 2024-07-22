@@ -38,5 +38,8 @@ class Test_001_Login:
         allure.attach(self.driver.get_screenshot_as_png(), name="cart page screen",
                       attachment_type=AttachmentType.PNG)
         self.cp.verifyYourCartTitleIsDisplayed()
+        self.cp.clickCheckoutButton()
+        allure.attach(self.driver.get_screenshot_as_png(), name="checkout screen",
+                      attachment_type=AttachmentType.PNG)
 
         self.driver.quit()
