@@ -29,6 +29,12 @@ class Test_001_Login:
         self.lp.clickLogin()
         self.hp.verifyBurgerMenu()
         allure.attach(self.driver.get_screenshot_as_png(),name="Home page",attachment_type=AttachmentType.PNG)
+        self.hp.selectBAckPack()
+        allure.attach(self.driver.get_screenshot_as_png(), name="item added to cart", attachment_type=AttachmentType.PNG)
+        self.hp.verifyRemoveIdDisplayed()
+        self.hp.clickCart()
+        allure.attach(self.driver.get_screenshot_as_png(), name="cart page screen",
+                      attachment_type=AttachmentType.PNG)
 
 
         self.driver.quit()
