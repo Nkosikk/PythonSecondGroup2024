@@ -11,7 +11,7 @@ from Pages.yourCartPage import YourCartPage
 from Utils.readProperties import ReadConfig
 
 
-class Test_001_Login:
+class Test_Purchase_Item:
     sauceDemoURL = ReadConfig().getSauceDemoURL()
     username = ReadConfig().getUsername()
     password = ReadConfig().getPassword()
@@ -19,7 +19,7 @@ class Test_001_Login:
     @pytest.mark.regression
     @pytest.mark.nkosi
     @allure.severity(allure.severity_level.CRITICAL)
-    def test_loginTests(self, setup):
+    def test_PurchaseItemTests(self, setup):
         self.driver = setup
         self.driver.get(self.sauceDemoURL)
         self.driver.maximize_window()
