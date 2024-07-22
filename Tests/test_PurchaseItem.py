@@ -1,3 +1,5 @@
+import time
+
 import allure
 import pytest
 from allure_commons.types import AttachmentType
@@ -6,6 +8,7 @@ from selenium.webdriver.common.by import By
 from Pages.cartPage import CartPage
 from Pages.homePage import HomePage
 from Pages.loginPage import LoginPage
+from Pages.CheckoutPage import CheckoutPage
 from Utils.readProperties import ReadConfig
 
 
@@ -13,6 +16,9 @@ class Test_001_Login:
     sauceDemoURL = ReadConfig().getSauceDemoURL()
     username = ReadConfig().getUsername()
     password = ReadConfig().getPasswo2rd()
+    firstName = ReadConfig().getFirstName()
+    lastName = ReadConfig().getLastName()
+    ZipCode = ReadConfig().getZipCode()
 
     @pytest.mark.regression
     @pytest.mark.nkosi
@@ -24,6 +30,7 @@ class Test_001_Login:
         self.hp = HomePage(self.driver)
         self.lp = LoginPage(self.driver)
         self.cp = CartPage(self.driver)
+        self.ck = CheckoutPage(self.driver)
         self.lp.enterUsername(self.username)
         self.lp.enterPassword(self.password)
         allure.attach(self.driver.get_screenshot_as_png(), name="Login page", attachment_type=AttachmentType.PNG)
@@ -41,5 +48,8 @@ class Test_001_Login:
         self.cp.clickCheckoutButton()
         allure.attach(self.driver.get_screenshot_as_png(), name="checkout screen",
                       attachment_type=AttachmentType.PNG)
+        self.ck.setFirstName(self.firstName)
+        self.ck.setLastName(self.lastName)
+        self.ck.setPostalCode(self.ZipCode)
 
         self.driver.quit()
