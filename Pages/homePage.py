@@ -7,6 +7,7 @@ class HomePage:
     burgemenu = "react-burger-menu-btn"
     addBackPack_id = "add-to-cart-sauce-labs-backpack"
     removeButton_id = "remove-sauce-labs-backpack"
+    cart_xpath = "//span[@class='shopping_cart_badge'][contains(.,'1')]"
 
     def __init__(self, driver):
         self.driver = driver
@@ -29,6 +30,11 @@ class HomePage:
             assert True
         else:
             assert False
+
+    def clickCart(self):
+        wait = WebDriverWait(self.driver, 15)
+        element = wait.until(EC.element_to_be_clickable((By.XPATH, self.cart_xpath)))
+        element.click()
 
 
 
