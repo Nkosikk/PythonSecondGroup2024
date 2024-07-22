@@ -32,6 +32,9 @@ class Test_001_Login:
         self.hp.selectBAckPack()
         allure.attach(self.driver.get_screenshot_as_png(), name="item added to cart", attachment_type=AttachmentType.PNG)
         self.hp.verifyRemoveIdDisplayed()
+        self.hp.clickCart()
+        allure.attach(self.driver.get_screenshot_as_png(), name="cart page screen",
+                      attachment_type=AttachmentType.PNG)
 
 
         self.driver.quit()
