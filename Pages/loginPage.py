@@ -29,9 +29,6 @@ class LoginPage:
         element.click()
 
 
-    # ToDo Allettah create the method to enter password
-    # ToDo Zwai create the methood to click login button
-    # ToDo MakMore create the methood to validate that you are in homepage
 
 
 
