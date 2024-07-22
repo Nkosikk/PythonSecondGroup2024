@@ -26,4 +26,6 @@ time.sleep(5)
 # Close the browser
 driver.quit()
 
+
+#We use the below to run ALL Tests in the Terminal
 # pytest -s -v -m"regression" --alluredir="allure-results" --browser chrome
