@@ -10,6 +10,9 @@ from Pages.checkoutYrInfoPg import CheckoutYrInfoPg
 from Pages.homePage import HomePage
 from Pages.loginPage import LoginPage
 from Pages.yourCartPage import YourCartPage
+from Pages.checkoutYrInfoPg import CheckoutYrInfoPg
+from Pages.checkoutOverviewPg import CheckoutOverviewPg
+
 from Utils.readProperties import ReadConfig
 
 
@@ -56,7 +59,7 @@ class Test_Purchase_Item:
         allure.attach(self.driver.get_screenshot_as_png(), name="Checkout Your Info page",
                       attachment_type=AttachmentType.PNG)
         self.cyi.clickContinue()
-        self.co.CheckoutOverviewPg(self.driver)
+        self.co= CheckoutOverviewPg(self.driver)
         self.co.verifyCheckoutOverview()
         time.sleep(5)
         allure.attach(self.driver.get_screenshot_as_png(), name="Checkout Overview page",
