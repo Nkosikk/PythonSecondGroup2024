@@ -1,3 +1,5 @@
+import time
+
 import allure
 import pytest
 from allure_commons.types import AttachmentType
@@ -54,4 +56,9 @@ class Test_Purchase_Item:
         allure.attach(self.driver.get_screenshot_as_png(), name="Checkout Your Info page",
                       attachment_type=AttachmentType.PNG)
         self.cyi.clickContinue()
+        self.co.CheckoutOverviewPg(self.driver)
+        self.co.verifyCheckoutOverview()
+        time.sleep(5)
+        allure.attach(self.driver.get_screenshot_as_png(), name="Checkout Overview page",
+                      attachment_type=AttachmentType.PNG)
         self.driver.quit()
