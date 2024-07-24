@@ -6,6 +6,7 @@ from allure_commons.types import AttachmentType
 from selenium.webdriver.common.by import By
 
 from Pages.cartPage import CartPage
+from Pages.checkoutOverviewPage import CheckoutOverviewPage
 from Pages.homePage import HomePage
 from Pages.loginPage import LoginPage
 from Pages.CheckoutPage import CheckoutPage
@@ -31,6 +32,7 @@ class Test_001_Login:
         self.lp = LoginPage(self.driver)
         self.cp = CartPage(self.driver)
         self.ck = CheckoutPage(self.driver)
+        self.checkOutOverView = CheckoutOverviewPage(self.driver)
         self.lp.enterUsername(self.username)
         self.lp.enterPassword(self.password)
         allure.attach(self.driver.get_screenshot_as_png(), name="Login page", attachment_type=AttachmentType.PNG)
@@ -56,5 +58,7 @@ class Test_001_Login:
         self.ck.clickContinueButton()
         allure.attach(self.driver.get_screenshot_as_png(), name="checkout overview screen",
                       attachment_type=AttachmentType.PNG)
+        self.checkOutOverView.verifyOnProductOverviewPage()
+        self.checkOutOverView.calculateCartItems()
 
         self.driver.quit()
