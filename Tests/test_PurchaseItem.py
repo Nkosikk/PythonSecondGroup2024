@@ -51,5 +51,10 @@ class Test_001_Login:
         self.ck.setFirstName(self.firstName)
         self.ck.setLastName(self.lastName)
         self.ck.setPostalCode(self.ZipCode)
+        allure.attach(self.driver.get_screenshot_as_png(), name="User Information Screen",
+                      attachment_type=AttachmentType.PNG)
+        self.ck.clickContinueButton()
+        allure.attach(self.driver.get_screenshot_as_png(), name="checkout overview screen",
+                      attachment_type=AttachmentType.PNG)
 
         self.driver.quit()
