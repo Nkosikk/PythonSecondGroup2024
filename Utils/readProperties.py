@@ -8,7 +8,6 @@ class ReadConfig():
     def getSauceDemoURL(self):
         # sauceDemoURL = config.get('URLs', 'sauceDemoURL')
         # return sauceDemoURL
-
         return config.get('URLs', 'sauceDemoURL')
 
     def getUsername(self):
