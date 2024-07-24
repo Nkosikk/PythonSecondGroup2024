@@ -1,15 +1,12 @@
-import time
-
 import allure
 import pytest
 from allure_commons.types import AttachmentType
-from selenium.webdriver.common.by import By
 
+from Pages.CheckoutPage import CheckoutPage
 from Pages.cartPage import CartPage
 from Pages.checkoutOverviewPage import CheckoutOverviewPage
 from Pages.homePage import HomePage
 from Pages.loginPage import LoginPage
-from Pages.CheckoutPage import CheckoutPage
 from Utils.readProperties import ReadConfig
 
 
@@ -58,7 +55,12 @@ class Test_001_Login:
         self.ck.clickContinueButton()
         allure.attach(self.driver.get_screenshot_as_png(), name="checkout overview screen",
                       attachment_type=AttachmentType.PNG)
-        self.checkOutOverView.verifyOnProductOverviewPage()
-        self.checkOutOverView.calculateCartItems()
+
+        #Calculate cart total#
+        self.checkOutOverView.verify_on_product_overview_page()
+        self.checkOutOverView.calculate_cart_items()
+        self.checkOutOverView.click_finish_btn()
+
+
 
         self.driver.quit()
